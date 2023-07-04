@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get User's Position</title>
+</head>
+<body>
+  <h1>Get User's Position</h1>
+
+  <!-- Button to trigger the geolocation -->
+  <button onclick="getLocation()">Get Position</button>
+
+  <script>
+    // JavaScript program to get the latitude and longitude of the user's position
+
+    // Function to get the user's position
+    function getLocation() {
+      // Check if the browser supports geolocation
+      if (navigator.geolocation) {
+        // Use the getCurrentPosition() method to get the user's position
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        // Display an error message if geolocation is not supported
+        alert('Geolocation is not supported by this browser.');
+      }
+    }
+
+    // Function to display the position
+    function showPosition(position) {
+      // Extract the latitude and longitude from the position object
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+
+      // Display the latitude and longitude using an alert box
+      alert(`Latitude: ${latitude}\nLongitude: ${longitude}`);
+    }
+
+    // Function to handle errors
+    function showError(error) {
+      // Check the error code and display an appropriate error message
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          alert('User denied the request for Geolocation.');
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alert('Location information is unavailable.');
+          break;
+        case error.TIMEOUT:
+          alert('The request to get user location timed out.');
+          break;
+        case error.UNKNOWN_ERROR:
+          alert('An unknown error occurred.');
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
