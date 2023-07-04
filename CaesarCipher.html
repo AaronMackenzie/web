@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caesar Cipher Encryption</title>
+</head>
+<body>
+  <h1>Caesar Cipher Encryption</h1>
+
+  <script>
+    // JavaScript code to encrypt text using Caesar Cipher technique
+
+    // Function to encrypt text using Caesar Cipher
+    function caesarCipherEncrypt(text, shift) {
+      let encryptedText = "";
+
+      for (let i = 0; i < text.length; i++) {
+        // Get the character code of the current character
+        let charCode = text.charCodeAt(i);
+
+        // Encrypt uppercase letters
+        if (charCode >= 65 && charCode <= 90) {
+          let encryptedCharCode = ((charCode - 65 + shift) % 26) + 65;
+          encryptedText += String.fromCharCode(encryptedCharCode);
+        }
+        // Encrypt lowercase letters
+        else if (charCode >= 97 && charCode <= 122) {
+          let encryptedCharCode = ((charCode - 97 + shift) % 26) + 97;
+          encryptedText += String.fromCharCode(encryptedCharCode);
+        }
+        // Keep non-alphabetic characters as they are
+        else {
+          encryptedText += text.charAt(i);
+        }
+      }
+
+      return encryptedText;
+    }
+
+    // Prompt the user to enter the text
+    let inputText = prompt("Enter the text to encrypt:");
+
+    // Prompt the user to enter the shift pattern
+    let shiftPattern = prompt("Enter the shift pattern (a positive integer):");
+    let shift = parseInt(shiftPattern);
+
+    // Check if the shift pattern is a valid positive integer
+    if (isNaN(shift) || shift < 1) {
+      alert("Invalid shift pattern. Please enter a positive integer.");
+    } else {
+      // Encrypt the text using the Caesar Cipher
+      let encryptedText = caesarCipherEncrypt(inputText, shift);
+
+      // Display the encrypted text using an alert box
+      alert(`Encrypted Text: ${encryptedText}`);
+    }
+  </script>
+</body>
+</html>
