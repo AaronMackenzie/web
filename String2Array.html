@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Split and Array Conversion</title>
+</head>
+<body>
+  <h1>String Split and Array Conversion</h1>
+
+  <script>
+    // JavaScript code to split a string and convert it into an array of words
+
+    // Function to split a string into an array of words
+    function splitString(string) {
+      // Use the split() method to split the string by whitespace
+      let wordsArray = string.split(" ");
+
+      // Return the array of words
+      return wordsArray;
+    }
+
+    // Prompt the user to enter a string
+    let input = prompt("Enter a string:");
+
+    // Call the splitString function and pass the input string
+    let words = splitString(input);
+
+    // Display the resulting array of words using an alert box
+    alert("Array of words: " + words);
+  </script>
+</body>
+</html>
