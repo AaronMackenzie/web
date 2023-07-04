@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map Operations</title>
+</head>
+<body>
+  <h1>Map Operations</h1>
+
+  <button onclick="storeValues()">Store Values</button>
+  <button onclick="retrieveValue()">Retrieve Value</button>
+  <button onclick="iterateMap()">Iterate Map</button>
+
+  <script>
+    // JavaScript code to perform Map operations
+
+    // Create an empty Map
+    let myMap = new Map();
+
+    // Function to store values into the Map
+    function storeValues() {
+      // Prompt the user to enter key-value pairs
+      let key = prompt("Enter a key:");
+      let value = prompt("Enter a value:");
+
+      while (key !== '' && value !== '') {
+        // Add the key-value pair to the Map
+        myMap.set(key, value);
+        
+        // Prompt for the next key-value pair
+        key = prompt("Enter a key:");
+        value = prompt("Enter a value:");
+      }
+
+      alert("Values stored in the Map.");
+    }
+
+    // Function to retrieve a value from the Map
+    function retrieveValue() {
+      // Prompt the user to enter a key to retrieve
+      let key = prompt("Enter a key to retrieve:");
+
+      // Check if the key is present in the Map
+      if (myMap.has(key)) {
+        // Retrieve the value associated with the key
+        let value = myMap.get(key);
+        alert(`Value for key '${key}': ${value}`);
+      } else {
+        alert(`Key '${key}' is not found in the Map.`);
+      }
+    }
+
+    // Function to iterate over the Map
+    function iterateMap() {
+      // Create an empty array to store the Map entries
+      let mapEntries = [];
+
+      // Iterate over the Map using the entries() method
+      for (let [key, value] of myMap.entries()) {
+        mapEntries.push(`Key: ${key}, Value: ${value}`);
+      }
+
+      // Display the Map entries using an alert box
+      alert(`Map entries:\n${mapEntries.join("\n")}`);
+    }
+  </script>
+</body>
+</html>
