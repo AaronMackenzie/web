@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Reversal Example</title>
+</head>
+<body>
+  <h1>Number Reversal</h1>
+
+  <script>
+    const reverseNumber = number => {
+      const reversedString = String(number).split('').reverse().join('');
+      return parseInt(reversedString);
+    };
+
+    const givenNumber = parseInt(prompt("Enter a number:"));
+    const reversedNumber = reverseNumber(givenNumber);
+    alert("Given Number: " + givenNumber + "\nReversed Number: " + reversedNumber);
+  </script>
+</body>
+</html>
