@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location Check</title>
+</head>
+<body>
+  <script>
+    // Function to check if the location is present in the sentence and return a promise
+    function checkLocation(location, sentence) {
+      return new Promise((resolve, reject) => {
+        // Check if the location is present in the sentence
+        if (sentence.toLowerCase().includes(location.toLowerCase())) {
+          // If it is present, resolve the promise with the provided sentence
+          resolve(sentence);
+        } else {
+          // If it is not present, reject the promise with an error message
+          reject("Location not found in the sentence");
+        }
+      });
+    }
+
+    // Prompt the user for the location
+    const userLocation = prompt("Enter a location:");
+    // Prompt the user for the sentence to display
+    const userSentence = prompt("Enter a sentence:");
+
+    // Call the function to check the location and handle the promise
+    checkLocation(userLocation, userSentence)
+      .then((message) => {
+        // If the promise is resolved, display the provided sentence
+        alert(message);
+      })
+      .catch((error) => {
+        // If the promise is rejected, display the error message
+        alert(error);
+      });
+  </script>
+</body>
+</html>
