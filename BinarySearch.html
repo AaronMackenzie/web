@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Insertion and Binary Search</title>
+</head>
+<body>
+  <h1>Array Insertion and Binary Search</h1>
+
+  <script>
+    // JavaScript program to insert elements into an array as a whole and perform binary search
+
+    // Function to perform binary search on an array
+    function binarySearch(arr, target) {
+      let left = 0;
+      let right = arr.length - 1;
+
+      // Loop until the search space is exhausted
+      while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        // If the middle element is the target, return its index
+        if (arr[mid] === target) {
+          return mid;
+        }
+        // If the middle element is less than the target, search in the right half
+        else if (arr[mid] < target) {
+          left = mid + 1;
+        }
+        // If the middle element is greater than the target, search in the left half
+        else {
+          right = mid - 1;
+        }
+      }
+
+      // If the element is not found, return -1
+      return -1;
+    }
+
+    // Prompt the user to enter the array elements as a string
+    let input = prompt("Enter the array elements separated by commas:");
+
+    // Split the input string into an array using commas as the separator
+    let array = input.split(",");
+
+    // Prompt the user to enter the target element to search for
+    let target = prompt("Enter the target element to search for:");
+
+    // Perform binary search on the array
+    let index = binarySearch(array, target);
+
+    // Display the search result using an alert box
+    if (index !== -1) {
+      alert(`Element ${target} found at index ${index}`);
+    } else {
+      alert(`Element ${target} not found in the array`);
+    }
+  </script>
+</body>
+</html>
