@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Operations</title>
+</head>
+<body>
+  <h1>Set Operations</h1>
+
+  <button onclick="storeValues()">Store Values</button>
+  <button onclick="retrieveValue()">Retrieve Value</button>
+  <button onclick="iterateSet()">Iterate Set</button>
+
+  <script>
+    // JavaScript code to perform Set operations
+
+    // Create an empty Set
+    let mySet = new Set();
+
+    // Function to store values into the Set
+    function storeValues() {
+      // Prompt the user to enter values
+      let value = prompt("Enter a value (or 'done' to finish):");
+
+      while (value !== 'done') {
+        // Add the value to the Set
+        mySet.add(value);
+        
+        // Prompt for the next value
+        value = prompt("Enter a value (or 'done' to finish):");
+      }
+
+      alert("Values stored in the Set.");
+    }
+
+    // Function to retrieve a value from the Set
+    function retrieveValue() {
+      // Prompt the user to enter a value to retrieve
+      let value = prompt("Enter a value to retrieve:");
+
+      // Check if the value is present in the Set
+      if (mySet.has(value)) {
+        alert(`Value '${value}' is present in the Set.`);
+      } else {
+        alert(`Value '${value}' is not found in the Set.`);
+      }
+    }
+
+    // Function to iterate over the Set
+    function iterateSet() {
+      // Create an empty array to store the Set values
+      let setValues = [];
+
+      // Iterate over the Set using the forEach() method
+      mySet.forEach(function(value) {
+        setValues.push(value);
+      });
+
+      // Display the Set values using an alert box
+      alert(`Set values: ${setValues.join(", ")}`);
+    }
+  </script>
+</body>
+</html>
