@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leap Years</title>
+</head>
+<body>
+  <h1>Leap Years</h1>
+
+  <button onclick="findLeapYears()">Find Leap Years</button>
+
+  <script>
+    // JavaScript code to find the leap years in a given range
+
+    // Function to find the leap years in a given range
+    function findLeapYears() {
+      // Prompt the user to enter the start and end years
+      let startYear = parseInt(prompt("Enter the start year:"));
+      let endYear = parseInt(prompt("Enter the end year:"));
+
+      // Validate the input
+      if (isNaN(startYear) || isNaN(endYear)) {
+        alert("Invalid input. Please enter valid years.");
+        return;
+      }
+
+      // Initialize an empty array to store the leap years
+      let leapYears = [];
+
+      // Iterate through the range of years
+      for (let year = startYear; year <= endYear; year++) {
+        // Check if the current year is a leap year
+        if (isLeapYear(year)) {
+          leapYears.push(year);
+        }
+      }
+
+      // Display the leap years using an alert box
+      if (leapYears.length > 0) {
+        alert(`Leap years between ${startYear} and ${endYear}:\n${leapYears.join(", ")}`);
+      } else {
+        alert(`No leap years found between ${startYear} and ${endYear}.`);
+      }
+    }
+
+    // Function to check if a year is a leap year
+    function isLeapYear(year) {
+      // Leap year is divisible by 4 but not divisible by 100, unless divisible by 400
+      return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+  </script>
+</body>
+</html>

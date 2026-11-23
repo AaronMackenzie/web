@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set vs Array</title>
+</head>
+<body>
+  <h1>Set vs Array</h1>
+
+  <button onclick="comparePerformance()">Compare Performance</button>
+
+  <script>
+    // JavaScript code to compare Set and Array performance
+
+    // Function to compare performance of Set and Array
+    function comparePerformance() {
+      let iterations = 1000000; // Number of iterations for the test
+
+      // Performance test using Set
+      let setStart = performance.now(); // Start time
+      let set = new Set();
+
+      for (let i = 0; i < iterations; i++) {
+        let value = `value${i}`;
+
+        set.add(value);
+      }
+
+      let setEnd = performance.now(); // End time
+      let setTime = setEnd - setStart; // Time taken in milliseconds
+
+      // Performance test using Array
+      let arrayStart = performance.now(); // Start time
+      let array = [];
+
+      for (let i = 0; i < iterations; i++) {
+        let value = `value${i}`;
+
+        array.push(value);
+      }
+
+      let arrayEnd = performance.now(); // End time
+      let arrayTime = arrayEnd - arrayStart; // Time taken in milliseconds
+
+      // Searching for a value in Set and Array
+      let searchValue = `value${Math.floor(iterations / 2)}`;
+
+      let setSearchStart = performance.now(); // Start time
+      let isValueInSet = set.has(searchValue);
+      let setSearchEnd = performance.now(); // End time
+      let setSearchTime = setSearchEnd - setSearchStart; // Time taken in milliseconds
+
+      let arraySearchStart = performance.now(); // Start time
+      let isValueInArray = array.includes(searchValue);
+      let arraySearchEnd = performance.now(); // End time
+      let arraySearchTime = arraySearchEnd - arraySearchStart; // Time taken in milliseconds
+
+      // Display the performance and search results using an alert box
+      alert(`Performance Comparison:
+      - Set Time: ${setTime}ms
+      - Array Time: ${arrayTime}ms
+      
+      Search Results:
+      - Value '${searchValue}' in Set: ${isValueInSet} (Search Time: ${setSearchTime}ms)
+      - Value '${searchValue}' in Array: ${isValueInArray} (Search Time: ${arraySearchTime}ms)`);
+    }
+  </script>
+</body>
+</html>

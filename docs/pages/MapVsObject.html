@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map vs Object</title>
+</head>
+<body>
+  <h1>Map vs Object</h1>
+
+  <button onclick="comparePerformance()">Compare Performance</button>
+
+  <script>
+    // JavaScript code to compare Map and Object performance
+
+    // Function to compare performance of Map and Object
+    function comparePerformance() {
+      let iterations = 1000000; // Number of iterations for the test
+
+      // Performance test using Map
+      let mapStart = performance.now(); // Start time
+      let map = new Map();
+
+      for (let i = 0; i < iterations; i++) {
+        let key = `key${i}`;
+        let value = `value${i}`;
+
+        map.set(key, value);
+      }
+
+      let mapEnd = performance.now(); // End time
+      let mapTime = mapEnd - mapStart; // Time taken in milliseconds
+
+      // Performance test using Object
+      let objectStart = performance.now(); // Start time
+      let object = {};
+
+      for (let i = 0; i < iterations; i++) {
+        let key = `key${i}`;
+        let value = `value${i}`;
+
+        object[key] = value;
+      }
+
+      let objectEnd = performance.now(); // End time
+      let objectTime = objectEnd - objectStart; // Time taken in milliseconds
+
+      // Display the performance results using an alert box
+      alert(`Performance Comparison:
+      - Map Time: ${mapTime}ms
+      - Object Time: ${objectTime}ms`);
+    }
+  </script>
+</body>
+</html>

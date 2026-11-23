@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Reversal Example</title>
+</head>
+<body>
+  <h1>Number Reversal</h1>
+
+  <script>
+    const reverseNumber = number => {
+      // Reverse the digits only, then put the sign back
+      const reversedString = String(Math.abs(number)).split('').reverse().join('');
+      return Math.sign(number) * parseInt(reversedString);
+    };
+
+    const givenNumber = parseInt(prompt("Enter a number:"));
+    if (isNaN(givenNumber)) {
+      alert("Invalid input. Please enter a whole number.");
+    } else {
+      const reversedNumber = reverseNumber(givenNumber);
+      alert("Given Number: " + givenNumber + "\nReversed Number: " + reversedNumber);
+    }
+  </script>
+</body>
+</html>

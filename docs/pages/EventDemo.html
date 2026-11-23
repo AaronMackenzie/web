@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Demo</title>
+</head>
+<body>
+  <!-- Buttons and Input fields for event demonstrations -->
+  <button id="clickButton">Click Me</button>
+  <button id="mouseOverDiv">Mouse Over Me</button>
+  <button id="mouseOutDiv">Mouse Out Me</button>
+  <input type="text" id="changeInput" placeholder="Type something">
+  <input type="text" id="keyDownInput" placeholder="Press a key">
+
+  <script>
+    // Function to handle the click event
+    function onClickHandler() {
+      alert("onClick event triggered");
+    }
+
+    // Function to handle the mouseover event
+    function onMouseOverHandler() {
+      alert("onMouseOver event triggered");
+    }
+
+    // Function to handle the mouseout event
+    function onMouseOutHandler() {
+      alert("onMouseOut event triggered");
+    }
+
+    // Function to handle the change event
+    function onChangeHandler() {
+      alert("onChange event triggered");
+    }
+
+    // Function to handle the keydown event
+    function onKeyDownHandler(event) {
+      alert("onKeyDown event triggered: Key code - " + event.keyCode);
+    }
+
+    // Event listeners are added to the respective elements
+
+    // Click event listener added to the button with id "clickButton"
+    document.getElementById("clickButton").addEventListener("click", onClickHandler);
+
+    // Mouseover event listener added to the button with id "mouseOverDiv"
+    document.getElementById("mouseOverDiv").addEventListener("mouseover", onMouseOverHandler);
+
+    // Mouseout event listener added to the button with id "mouseOutDiv"
+    document.getElementById("mouseOutDiv").addEventListener("mouseout", onMouseOutHandler);
+
+    // Change event listener added to the input field with id "changeInput"
+    document.getElementById("changeInput").addEventListener("change", onChangeHandler);
+
+    // Keydown event listener added to the input field with id "keyDownInput"
+    document.getElementById("keyDownInput").addEventListener("keydown", onKeyDownHandler);
+  </script>
+</body>
+</html>

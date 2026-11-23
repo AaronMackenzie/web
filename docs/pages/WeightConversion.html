@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weight Conversion</title>
+</head>
+<body>
+  <script>
+    const convertWeight = (kg) => {
+      const lbs = kg * 2.2; // Convert kg to lbs using the formula kg * 2.2
+
+      if (lbs > 150) {
+        return "obese";
+      } else if (lbs >= 100 && lbs <= 150) {
+        return "you are ok";
+      } else {
+        return "underweight";
+      }
+    };
+
+    const weightInKg = parseFloat(prompt("Enter weight in Kg:"));
+    if (isNaN(weightInKg) || weightInKg <= 0) {
+      alert("Invalid input. Please enter a weight in kg greater than 0.");
+    } else {
+      alert(convertWeight(weightInKg));
+    }
+  </script>
+</body>
+</html>
