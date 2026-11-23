@@ -20,9 +20,9 @@
     }
 
     // Prompt the user for the location
-    const userLocation = prompt("Enter a location:");
+    const userLocation = prompt("Enter a location:") ?? "";
     // Prompt the user for the sentence to display
-    const userSentence = prompt("Enter a sentence:");
+    const userSentence = prompt("Enter a sentence:") ?? "";
 
     // Call the function to check the location and handle the promise
     checkLocation(userLocation, userSentence)

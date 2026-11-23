@@ -11,15 +11,16 @@
 
     // Function to split a string into an array of words
     function splitString(string) {
-      // Use the split() method to split the string by whitespace
-      let wordsArray = string.split(" ");
+      // Split on runs of whitespace and drop empty entries
+      // (split(" ") returns "" for every extra space)
+      let wordsArray = string.trim().split(/\s+/).filter(w => w !== "");
 
       // Return the array of words
       return wordsArray;
     }
 
     // Prompt the user to enter a string
-    let input = prompt("Enter a string:");
+    let input = prompt("Enter a string:") ?? "";
 
     // Call the splitString function and pass the input string
     let words = splitString(input);

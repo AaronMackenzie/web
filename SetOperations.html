@@ -21,7 +21,7 @@
       // Prompt the user to enter values
       let value = prompt("Enter a value (or 'done' to finish):");
 
-      while (value !== 'done') {
+      while (value !== null && value !== 'done') {
         // Add the value to the Set
         mySet.add(value);
         

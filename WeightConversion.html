@@ -18,9 +18,11 @@
     };
 
     const weightInKg = parseFloat(prompt("Enter weight in Kg:"));
-    const result = convertWeight(weightInKg);
-
-    alert(result);
+    if (isNaN(weightInKg) || weightInKg <= 0) {
+      alert("Invalid input. Please enter a weight in kg greater than 0.");
+    } else {
+      alert(convertWeight(weightInKg));
+    }
   </script>
 </body>
 </html>

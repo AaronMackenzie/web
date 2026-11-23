@@ -7,8 +7,12 @@
   <script>
     var number1 = parseFloat(prompt("Enter the first number:"));
     var number2 = parseFloat(prompt("Enter the second number:"));
-    var sum = number1 + number2;
-    alert("The sum is: " + sum);
+    if (isNaN(number1) || isNaN(number2)) {
+      alert("Invalid input. Please enter two valid numbers.");
+    } else {
+      var sum = number1 + number2;
+      alert("The sum is: " + sum);
+    }
   </script>
 </body>
 </html>

@@ -8,9 +8,10 @@
 
   <script>
     function checkOddEven() {
-      const number = parseInt(prompt("Enter a number:"));
+      const raw = prompt("Enter a number:");
+      const number = raw === null || raw.trim() === "" ? NaN : Number(raw);
 
-      if (isNaN(number)) {
+      if (!Number.isInteger(number)) {
         alert("Invalid input. Please enter a valid number.");
       } else {
         if (number % 2 === 0) {

@@ -8,13 +8,18 @@
 
   <script>
     const reverseNumber = number => {
-      const reversedString = String(number).split('').reverse().join('');
-      return parseInt(reversedString);
+      // Reverse the digits only, then put the sign back
+      const reversedString = String(Math.abs(number)).split('').reverse().join('');
+      return Math.sign(number) * parseInt(reversedString);
     };
 
     const givenNumber = parseInt(prompt("Enter a number:"));
-    const reversedNumber = reverseNumber(givenNumber);
-    alert("Given Number: " + givenNumber + "\nReversed Number: " + reversedNumber);
+    if (isNaN(givenNumber)) {
+      alert("Invalid input. Please enter a whole number.");
+    } else {
+      const reversedNumber = reverseNumber(givenNumber);
+      alert("Given Number: " + givenNumber + "\nReversed Number: " + reversedNumber);
+    }
   </script>
 </body>
 </html>
