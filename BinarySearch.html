@@ -39,34 +39,20 @@
     // Prompt the user to enter the array elements as a string
     let input = prompt("Enter the array elements separated by commas:");
 
-    if (input === null) {
-      alert("Cancelled.");
+    // Split the input string into an array using commas as the separator
+    let array = input.split(",");
+
+    // Prompt the user to enter the target element to search for
+    let target = prompt("Enter the target element to search for:");
+
+    // Perform binary search on the array
+    let index = binarySearch(array, target);
+
+    // Display the search result using an alert box
+    if (index !== -1) {
+      alert(`Element ${target} found at index ${index}`);
     } else {
-      // Split on commas and trim spaces around each element
-      let array = input.split(",").map(s => s.trim()).filter(s => s !== "");
-
-      // Prompt the user to enter the target element to search for
-      let target = (prompt("Enter the target element to search for:") || "").trim();
-
-      // Compare numbers as numbers (not as text, where "10" < "5") and
-      // sort the array first, because binary search only works on sorted input
-      const numeric = array.every(s => !isNaN(Number(s))) && target !== "" && !isNaN(Number(target));
-      if (numeric) {
-        array = array.map(Number).sort((a, b) => a - b);
-        target = Number(target);
-      } else {
-        array.sort();
-      }
-
-      // Perform binary search on the array
-      let index = binarySearch(array, target);
-
-      // Display the search result using an alert box
-      if (index !== -1) {
-        alert(`Element ${target} found at index ${index} of the sorted array [${array.join(", ")}]`);
-      } else {
-        alert(`Element ${target} not found in the array`);
-      }
+      alert(`Element ${target} not found in the array`);
     }
   </script>
 </body>

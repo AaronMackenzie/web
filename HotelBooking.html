@@ -27,11 +27,11 @@
         setTimeout(() => {
           const hotelName = prompt("Enter the hotel name:");
           if (hotelName) {
-            alert('Booking successfully'); // only confirm when a hotel was actually entered
             resolve(`Hotel "${hotelName}" booked successfully for flight number ${flightNumber}.`); // Resolve the promise with the hotel booking status
           } else {
             reject("Failed to book a hotel."); // Reject the promise with an error message
           }
+          alert('Booking successfully')
         }, 2000); // Delay of 2 seconds
       });
     }

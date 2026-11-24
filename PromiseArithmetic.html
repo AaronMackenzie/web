@@ -50,16 +50,12 @@
     }
 
     // Prompt the user for arithmetic inputs and operation
-    const num1 = parseFloat(prompt("Enter the first number:"));
-    const num2 = parseFloat(prompt("Enter the second number:"));
+    const num1 = parseInt(prompt("Enter the first number:"));
+    const num2 = parseInt(prompt("Enter the second number:"));
     const operation = prompt("Enter the operation to perform (+, -, *, /):");
 
     // Perform arithmetic operation based on user input
     async function performOperation() {
-      if (isNaN(num1) || isNaN(num2)) {
-        alert("Invalid input. Please enter two valid numbers.");
-        return;
-      }
       try {
         let result;
         switch (operation) {
